@@ -1,12 +1,14 @@
 {
   "name": "@mmc-cloud/cli",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "Quickly create projects with vite and react",
   "type": "module",
   "main": "index.js",
   "files": [
     "index.js",
-    "dist"
+    "dist",
+    "package.json",
+    "template"
   ],
   "bin": {
     "create-mmc": "index.js"

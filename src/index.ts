@@ -28,7 +28,7 @@ const bootstrap = async () => {
         name: "modules",
         message: "Select the required modules",
         instructions: false,
-        choices: optionalModules
+        choices: optionalModules,
       },
     ],
     {
@@ -55,7 +55,6 @@ const bootstrap = async () => {
   const templateDir = resolve(
     fileURLToPath(import.meta.url),
     "../..",
-    "src",
     "template"
   );
 
