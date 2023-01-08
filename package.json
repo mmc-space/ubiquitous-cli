@@ -1,6 +1,6 @@
 {
   "name": "@mmc-cloud/cli",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Quickly create projects with vite and react",
   "type": "module",
   "main": "index.js",
@@ -24,8 +24,17 @@
   "scripts": {
     "build": "unbuild"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "cli",
+    "vite",
+    "react",
+    "template",
+    "router",
+    "eslint",
+    "cssinjs",
+    "@mmc-cloud"
+  ],
+  "author": "codeDaiQin",
   "license": "ISC",
   "devDependencies": {
     "@rollup/plugin-alias": "^4.0.2",

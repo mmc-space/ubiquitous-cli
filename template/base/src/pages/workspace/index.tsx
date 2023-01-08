@@ -1,7 +1,7 @@
-import type { FC } from "react";
+import type { FC } from 'react'
 
 const WorkSpace: FC = () => {
-  return <div>workSpace</div>;
-};
+  return <div>workSpace</div>
+}
 
-export default WorkSpace;
+export default WorkSpace
