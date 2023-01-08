@@ -13,3 +13,13 @@ Quickly create projects with vite and react
 ```bash
   pnpm create mmc
 ```
+
+### expand
+
+Modify the following files
+- [modules](src/utils/deps.ts)
+- [template](src/template/)
+
+1. Maintain optional modules and corresponding parameters
+2. And add the corresponding file under the template file
+

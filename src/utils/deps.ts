@@ -1,12 +1,16 @@
 import { PackageParam } from "./package";
 
+export const optionalModules = [
+  { title: "router", value: "router" },
+  { title: "eslint", value: "eslint" },
+  { title: "css in js", value: "cssinjs" },
+];
+
 export const depsCharset: Record<string, Omit<PackageParam, "name">> = {
   router: {
-    dependencies: {},
     devDependencies: {
       "react-router-dom": "^6.6.1",
     },
-    scripts: {},
   },
 
   eslint: {
@@ -17,6 +21,12 @@ export const depsCharset: Record<string, Omit<PackageParam, "name">> = {
     },
     scripts: {
       fix: "eslint --ext .js,.jsx,.ts,.tsx --fix --quiet ./",
+    },
+  },
+
+  cssinjs: {
+    devDependencies: {
+      "@emotion/react": "^11.10.5",
     },
   },
 };

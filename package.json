@@ -1,7 +1,7 @@
 {
   "name": "@mmc-cloud/cli",
   "version": "1.0.0",
-  "description": "Quickly create projects",
+  "description": "Quickly create projects with vite and react",
   "type": "module",
   "main": "index.js",
   "files": [
@@ -10,6 +10,14 @@
   ],
   "bin": {
     "create-mmc": "index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mmc-space/ubiquitous-cli"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
     "build": "unbuild"

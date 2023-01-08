@@ -1,9 +1,14 @@
-import { existsSync, mkdirSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, writeFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+import { resolve } from "node:path";
+
 import { red, reset } from "kolorist";
 import prompts from "prompts";
-import { resolve } from "node:path";
-import { getDeps } from "./utils/deps";
+
+import { getDeps, optionalModules } from "./utils/deps";
 import { generatePackage } from "./utils/package";
+
+import { copy } from "./utils/file";
 
 const defaultProjectName = "mmc-projcet";
 
@@ -23,11 +28,7 @@ const bootstrap = async () => {
         name: "modules",
         message: "Select the required modules",
         instructions: false,
-        choices: [
-          { title: "router", value: "router" },
-          { title: "eslint", value: "eslint" },
-          { title: "css in js", value: "cssinjs" },
-        ],
+        choices: optionalModules
       },
     ],
     {
@@ -50,6 +51,21 @@ const bootstrap = async () => {
     resolve(projectDir, "package.json"),
     JSON.stringify(packageJson)
   );
+
+  const templateDir = resolve(
+    fileURLToPath(import.meta.url),
+    "../..",
+    "src",
+    "template"
+  );
+
+  for (const module of ["base", ...modules]) {
+    const template = `${templateDir}/${module}`;
+    const files = readdirSync(template);
+    for (const file of files) {
+      copy(resolve(template, file), resolve(projectDir, file));
+    }
+  }
 };
 
 bootstrap().catch((e) => {
