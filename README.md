@@ -11,7 +11,7 @@ Quickly create projects with vite and react
 ### usage
 
 ```bash
-  create-mmc
+  create-mmc [name]
 ```
 
 ### expand
