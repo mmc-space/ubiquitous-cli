@@ -23,3 +23,11 @@ Modify the following files
 
 1. Maintain optional modules and corresponding parameters
 2. And add the corresponding file under the template file
+
+
+### todo list
+- [ ] coverage test
+- [ ] more template, for example: vue
+- [ ] Template pattern based on git repository
+- [ ] A more convenient way to expand
+- [ ] More detailed log information
