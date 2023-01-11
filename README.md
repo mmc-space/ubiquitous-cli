@@ -27,7 +27,10 @@ Modify the following files
 
 ### todo list
 - [ ] coverage test
-- [ ] more template, for example: vue
+- [ ] Supports overwriting empty folders
+- [ ] Support dependent version selection
+- [ ] Support for monorepo
 - [ ] Template pattern based on git repository
 - [ ] A more convenient way to expand
 - [ ] More detailed log information
+- [ ] more template, for example: vue
