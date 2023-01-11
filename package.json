@@ -23,7 +23,8 @@
   },
   "scripts": {
     "build": "unbuild",
-    "fix": "eslint --ext .ts --fix --quiet ./src"
+    "fix": "eslint --ext .ts --fix --quiet ./src",
+    "test": "vitest"
   },
   "keywords": [
     "cli",
@@ -45,6 +46,7 @@
     "kolorist": "^1.6.0",
     "prompts": "^2.4.2",
     "typescript": "^4.9.4",
-    "unbuild": "^1.0.2"
+    "unbuild": "^1.0.2",
+    "vitest": "^0.27.0"
   }
 }

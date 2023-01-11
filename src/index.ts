@@ -9,36 +9,36 @@ import { getDeps, optionalModules } from './utils/deps'
 import { generatePackage } from './utils/package'
 import { copy } from './utils/file'
 
-const defaultProjectName = process.argv.pop() || 'mmc-projcet'
+const defaultProjectName = process.argv[3] || 'mmc-projcet'
+
+const questions: Parameters<typeof prompts>['0'] = [
+  // name
+  {
+    type: 'text',
+    name: 'projectName',
+    message: reset('Project name:'),
+    initial: defaultProjectName,
+  },
+  // modules
+  {
+    type: 'multiselect',
+    name: 'modules',
+    message: 'Select the required modules',
+    instructions: false,
+    choices: optionalModules,
+  },
+]
 
 const bootstrap = async () => {
-  const result = await prompts(
-    [
-      // name
-      {
-        type: 'text',
-        name: 'projectName',
-        message: reset('Project name:'),
-        initial: defaultProjectName,
-      },
-      // modules
-      {
-        type: 'multiselect',
-        name: 'modules',
-        message: 'Select the required modules',
-        instructions: false,
-        choices: optionalModules,
-      },
-    ],
-    {
-      onCancel: () => {
-        throw new Error(`${red('✖')} Operation cancelled`)
-      },
+  const result = await prompts(questions, {
+    onCancel: () => {
+      throw new Error(`${red('✖')} Operation cancelled`)
     },
-  )
+  })
+  return result
+}
 
-  const { modules, projectName } = result
-
+const main = async (projectName: string, modules: string[]) => {
   if (existsSync(projectName))
     throw new Error(`${projectName} directory already exists`)
 
@@ -67,4 +67,9 @@ const bootstrap = async () => {
   console.log(green('create project complete!'))
 }
 
-bootstrap().catch(e => console.log('initialization error', e))
+const init = async () => {
+  const { projectName, modules } = await bootstrap()
+  main(projectName, modules).catch(e => console.log('initialization error', e))
+}
+
+init()
